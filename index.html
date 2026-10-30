@@ -1,4 +1,113 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meet us There</title><style>body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px 60px;color:#1D2B2E;background:#F3F6F5;line-height:1.55}
-h1{font-size:28px;margin:.2em 0 .6em}h2{font-size:18px;margin:1.6em 0 .4em}p{margin:.4em 0;white-space:pre-line}
-nav{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:22px}nav a{color:#25685C;font-weight:600;text-decoration:none}
-.card{background:#fff;border:1px solid #E1E8E6;border-radius:16px;padding:20px}</style></head><body><nav><strong>Meet us There</strong><a href="datenschutz.html">Datenschutzerklärung</a><a href="impressum.html">Impressum</a><a href="nutzung.html">Nutzungsbedingungen</a><a href="loeschen.html">Konto und Daten löschen</a><a href="kinderschutz.html">Kinderschutz</a></nav><div class="card"><h1>Meet us There</h1><p>Sag einfach, wo du bist. Wer mag, kommt vorbei – keine Zusagen, kein Druck.</p><h2>Jetzt testen (Android)</h2><p>Die App ist gerade im Testlauf bei Google. So machst du mit:</p><p><b>1.</b> Mit deinem Google-Konto (dem aus dem Play Store) der Testgruppe beitreten:<br><a href="https://groups.google.com/g/meet-us-there-tester">groups.google.com/g/meet-us-there-tester</a></p><p><b>2.</b> „Tester werden“ antippen und die App installieren:<br><a href="https://play.google.com/apps/testing/de.meetusthere.app">play.google.com/apps/testing/de.meetusthere.app</a></p><p><b>3.</b> Bitte 14 Tage installiert lassen. Danke!</p><p style="color:#4F6166">Die iPhone-Version folgt.</p></div></body></html>
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meet us There</title>
+<meta name="description" content="Sag einfach, wann du wo bist – wer mag, kommt vorbei. Keine Zusagen, kein Druck. / Share when you'll be where – whoever likes drops by.">
+<style>
+:root{--text:#1D2B2E;--muted:#4F6166;--line:#E1E8E6;--accent:#3F8F80;--accentText:#25685C;--soft:#E2F0EC;--bg:#F3F6F5}
+*{box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:760px;margin:0 auto;padding:20px 16px 60px;color:var(--text);background:var(--bg);line-height:1.55}
+nav{display:flex;flex-wrap:wrap;gap:6px 14px;margin-bottom:18px;font-size:14px;align-items:center}
+nav a{color:var(--accentText);font-weight:600;text-decoration:none}
+.lang{margin-left:auto;display:flex;gap:6px}
+.lang button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-weight:700;cursor:pointer;color:var(--muted)}
+.lang button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:16px}
+.hero{display:flex;gap:16px;align-items:center}
+.logo{width:64px;height:64px;border-radius:16px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
+h1{font-size:28px;margin:0;line-height:1.15}
+h2{font-size:20px;margin:0 0 12px}
+.lead{font-size:17px;color:var(--muted);margin:14px 0 0}
+.step{display:flex;gap:14px;margin:18px 0}
+.num{width:34px;height:34px;border-radius:17px;background:var(--accent);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;margin-top:2px}
+.step b{display:block;font-size:16px}
+.step p{margin:4px 0 10px;color:var(--muted);font-size:14.5px}
+.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:12px;font-size:15px}
+.code{display:inline-block;font-size:26px;font-weight:800;letter-spacing:6px;background:var(--soft);color:var(--accentText);padding:8px 18px;border-radius:12px;margin:4px 0}
+.note{background:#FFF7E8;border:1px solid #F3DDB3;border-radius:14px;padding:14px 16px;font-size:14.5px}
+ul{padding-left:20px;margin:8px 0}li{margin:4px 0}
+video{width:100%;max-width:320px;border-radius:16px;display:block;margin:6px auto 0;background:#000}
+.small{font-size:13.5px;color:var(--muted)}
+html [data-l]{display:none!important}
+html[lang=de] [data-l=de],html[lang=en] [data-l=en]{display:revert!important}
+html[lang=de] .step b[data-l=de],html[lang=en] .step b[data-l=en]{display:block!important}
+</style></head><body>
+
+<nav><strong>Meet us There</strong>
+<a href="datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span></a>
+<a href="impressum.html"><span data-l="de">Impressum</span><span data-l="en">Legal notice</span></a>
+<a href="nutzung.html"><span data-l="de">Nutzungsbedingungen</span><span data-l="en">Terms</span></a>
+<a href="loeschen.html"><span data-l="de">Konto löschen</span><span data-l="en">Delete account</span></a>
+<a href="kinderschutz.html"><span data-l="de">Kinderschutz</span><span data-l="en">Child safety</span></a>
+<span class="lang"><button id="b-de" onclick="setLang('de')">DE</button><button id="b-en" onclick="setLang('en')">EN</button></span>
+</nav>
+
+<div class="card">
+  <div class="hero">
+    <div class="logo"><svg width="36" height="36" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
+    <h1>Meet us There</h1>
+  </div>
+  <p class="lead" data-l="de">Sag einfach, wann du wo bist – wer mag, kommt vorbei. Keine Zusagen, kein Gruppenchat, kein Druck. Nur für die Leute, die du auswählst.</p>
+  <p class="lead" data-l="en">Just share when you'll be where – whoever likes drops by. No RSVPs, no group chat, no pressure. Only for the people you choose.</p>
+</div>
+
+<div class="card">
+  <h2 data-l="de">🙌 Jetzt testen (Android)</h2>
+  <h2 data-l="en">🙌 Become a tester (Android)</h2>
+  <p class="small" data-l="de">Die App ist im geschlossenen Test bei Google Play. Damit sie öffentlich erscheinen darf, braucht sie 12 Tester für 14 Tage. Das dauert 2 Minuten:</p>
+  <p class="small" data-l="en">The app is in closed testing on Google Play. To be published it needs 12 testers for 14 days. It takes 2 minutes:</p>
+
+  <div class="step"><div class="num">1</div><div>
+    <b data-l="de">Der Testgruppe beitreten</b><b data-l="en">Join the tester group</b>
+    <p data-l="de">Mit dem Google-Konto, das in deinem Play Store angemeldet ist → „Gruppe beitreten“.</p>
+    <p data-l="en">Use the Google account you use in the Play Store → “Join group”.</p>
+    <a class="btn" href="https://groups.google.com/g/meet-us-there-tester" target="_blank" rel="noopener"><span data-l="de">Gruppe beitreten</span><span data-l="en">Join group</span></a>
+  </div></div>
+
+  <div class="step"><div class="num">2</div><div>
+    <b data-l="de">Tester werden &amp; installieren</b><b data-l="en">Opt in &amp; install</b>
+    <p data-l="de">„Tester werden“ antippen, dann „Bei Google Play herunterladen“ → Installieren.</p>
+    <p data-l="en">Tap “Become a tester”, then “Download it on Google Play” → Install.</p>
+    <a class="btn" href="https://play.google.com/apps/testing/de.meetusthere.app" target="_blank" rel="noopener"><span data-l="de">Tester werden</span><span data-l="en">Become a tester</span></a>
+  </div></div>
+
+  <div class="step"><div class="num">3</div><div>
+    <b data-l="de">Konto anlegen &amp; verbinden</b><b data-l="en">Sign up &amp; connect</b>
+    <p data-l="de">In der App mit E-Mail und Passwort registrieren. Damit du gleich etwas siehst: unter „Meine Leute“ diesen Code eingeben.</p>
+    <p data-l="en">Sign up in the app with email and password. To see something right away, enter this code under “My people”.</p>
+    <div class="code">4YUWWE</div>
+  </div></div>
+
+  <div class="note">
+    <b data-l="de">📱 Bitte die App mindestens 14 Tage installiert lassen</b><b data-l="en">📱 Please keep the app installed for at least 14 days</b>
+    <span data-l="de"> und nicht aus dem Test austreten. Ab und zu reinschauen hilft sehr. Danke!</span>
+    <span data-l="en"> and don't leave the test. Opening it now and then helps a lot. Thank you!</span>
+  </div>
+</div>
+
+<div class="card">
+  <h2 data-l="de">❓ Klappt nicht?</h2><h2 data-l="en">❓ Not working?</h2>
+  <ul data-l="de">
+    <li><b>„Nicht berechtigt“ / „nicht verfügbar“:</b> Link in <b>Chrome</b> öffnen (nicht im WhatsApp-Browser) und oben rechts mit dem Google-Konto aus dem Play Store anmelden.</li>
+    <li>Nach dem Beitritt kann es ein paar Minuten dauern, bis Schritt 2 funktioniert.</li>
+    <li>Fragen? <a href="mailto:meetusther26@gmail.com">meetusther26@gmail.com</a></li>
+  </ul>
+  <ul data-l="en">
+    <li><b>“No permission” / “not available”:</b> open the link in <b>Chrome</b> (not inside WhatsApp/Reddit) and sign in with your Play Store Google account.</li>
+    <li>After joining the group it can take a few minutes until step 2 works.</li>
+    <li>Questions? <a href="mailto:meetusther26@gmail.com">meetusther26@gmail.com</a></li>
+  </ul>
+  <div data-l="de"><p class="small" style="margin-top:14px">Anleitung als Video (1 Minute):</p><video src="anleitung.mp4" controls playsinline preload="metadata"></video></div>
+</div>
+
+<div class="card">
+  <h2>🍏 iPhone</h2>
+  <p class="small" data-l="de">Die iPhone-Version ist bei Apple in Prüfung und kommt in Kürze in den App Store.</p>
+  <p class="small" data-l="en">The iPhone version is in review at Apple and coming to the App Store soon.</p>
+</div>
+
+<script>
+function setLang(l){document.documentElement.lang=l;document.getElementById('b-de').className=l==='de'?'on':'';document.getElementById('b-en').className=l==='en'?'on':'';try{localStorage.setItem('lang',l)}catch(e){}}
+var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+var q=new URLSearchParams(location.search).get('lang');
+setLang(q==='en'||q==='de'?q:(saved||((navigator.language||'de').toLowerCase().startsWith('de')?'de':'en')));
+</script>
+</body></html>
