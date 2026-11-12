@@ -20,7 +20,7 @@ h2{font-size:20px;margin:0 0 12px}
 .num{width:34px;height:34px;border-radius:17px;background:var(--accent);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;margin-top:2px}
 .step b{display:block;font-size:16px}
 .step p{margin:4px 0 10px;color:var(--muted);font-size:14.5px}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:12px;font-size:15px}
+.btn{display:block;text-align:center;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:12px;font-size:15px}
 .code{display:inline-block;font-size:26px;font-weight:800;letter-spacing:6px;background:var(--soft);color:var(--accentText);padding:8px 18px;border-radius:12px;margin:4px 0}
 .note{background:#FFF7E8;border:1px solid #F3DDB3;border-radius:14px;padding:14px 16px;font-size:14.5px}
 ul{padding-left:20px;margin:8px 0}li{margin:4px 0}
@@ -50,58 +50,41 @@ html[lang=de] .step b[data-l=de],html[lang=en] .step b[data-l=en]{display:block!
 </div>
 
 <div class="card">
-  <h2 data-l="de">🙌 Jetzt testen (Android)</h2>
-  <h2 data-l="en">🙌 Become a tester (Android)</h2>
-  <p class="small" data-l="de">Die App ist im geschlossenen Test bei Google Play. Damit sie öffentlich erscheinen darf, braucht sie 12 Tester für 14 Tage. Das dauert 2 Minuten:</p>
-  <p class="small" data-l="en">The app is in closed testing on Google Play. To be published it needs 12 testers for 14 days. It takes 2 minutes:</p>
+  <h2 data-l="de">📲 App holen – kostenlos</h2><h2 data-l="en">📲 Get the app – free</h2>
+  <a class="btn" href="https://apps.apple.com/app/id6828419629" target="_blank" rel="noopener">🍏 <span data-l="de">Im App Store laden</span><span data-l="en">Download on the App Store</span></a>
+  <a class="btn" href="https://play.google.com/store/apps/details?id=de.meetusthere.app" target="_blank" rel="noopener" style="margin-top:8px">🤖 <span data-l="de">Bei Google Play laden</span><span data-l="en">Get it on Google Play</span></a>
+  <p class="small" data-l="de" style="margin-top:10px">Android: öffentlich ab etwa Mitte November. Falls Google Play die App noch nicht findet, unten als Tester mitmachen.</p>
+  <p class="small" data-l="en" style="margin-top:10px">Android: public from about mid-November. If Google Play can't find it yet, join as a tester below.</p>
+</div>
 
+<div class="card">
+  <h2 data-l="de">✨ So geht's</h2><h2 data-l="en">✨ How it works</h2>
   <div class="step"><div class="num">1</div><div>
-    <b data-l="de">Der Testgruppe beitreten</b><b data-l="en">Join the tester group</b>
-    <p data-l="de">Mit dem Google-Konto, das in deinem Play Store angemeldet ist → „Gruppe beitreten“.</p>
-    <p data-l="en">Use the Google account you use in the Play Store → “Join group”.</p>
-    <a class="btn" href="https://groups.google.com/g/meet-us-there-tester" target="_blank" rel="noopener"><span data-l="de">Gruppe beitreten</span><span data-l="en">Join group</span></a>
+    <b data-l="de">Sag, wann du wo bist</b><b data-l="en">Share when you'll be where</b>
+    <p data-l="de">Spielplatz, Biergarten, Garten: Ort und Zeit eintragen und auswählen, wer es sehen darf – alle, eine Gruppe wie die Kita-Eltern oder nur Einzelne.</p>
+    <p data-l="en">Playground, beer garden, back yard: add place and time and choose who may see it – everyone, a group like the daycare parents, or just a few.</p>
   </div></div>
-
   <div class="step"><div class="num">2</div><div>
-    <b data-l="de">Tester werden &amp; installieren</b><b data-l="en">Opt in &amp; install</b>
-    <p data-l="de">„Tester werden“ antippen, dann „Bei Google Play herunterladen“ → Installieren.</p>
-    <p data-l="en">Tap “Become a tester”, then “Download it on Google Play” → Install.</p>
-    <a class="btn" href="https://play.google.com/apps/testing/de.meetusthere.app" target="_blank" rel="noopener"><span data-l="de">Tester werden</span><span data-l="en">Become a tester</span></a>
+    <b data-l="de">Wer mag, kommt vorbei</b><b data-l="en">Whoever likes drops by</b>
+    <p data-l="de">Kein Nachfragen in Gruppen, keine Zusagen, kein schlechtes Gewissen, wenn man doch nicht kommt.</p>
+    <p data-l="en">No asking around in group chats, no RSVPs, no guilt if you don't make it after all.</p>
   </div></div>
-
   <div class="step"><div class="num">3</div><div>
-    <b data-l="de">Konto anlegen &amp; verbinden</b><b data-l="en">Sign up &amp; connect</b>
-    <p data-l="de">In der App mit E-Mail und Passwort registrieren. Damit du gleich etwas siehst: unter „Meine Leute“ diesen Code eingeben.</p>
-    <p data-l="en">Sign up in the app with email and password. To see something right away, enter this code under “My people”.</p>
-    <div class="code">4YUWWE</div>
+    <b data-l="de">Leute verbinden</b><b data-l="en">Connect your people</b>
+    <p data-l="de">Unter „Meine Leute“ auf „Freunde einladen“ tippen und den Link per WhatsApp schicken. Wer ihn öffnet, ist nach der Anmeldung mit dir verbunden.</p>
+    <p data-l="en">Under “My people” tap “Invite friends” and send the link via WhatsApp. Whoever opens it is connected with you after signing up.</p>
   </div></div>
-
-  <div class="note">
-    <b data-l="de">📱 Bitte die App mindestens 14 Tage installiert lassen</b><b data-l="en">📱 Please keep the app installed for at least 14 days</b>
-    <span data-l="de"> und nicht aus dem Test austreten. Ab und zu reinschauen hilft sehr. Danke!</span>
-    <span data-l="en"> and don't leave the test. Opening it now and then helps a lot. Thank you!</span>
-  </div>
+  <p class="small"><a href="video.html"><span data-l="de">▶️ Kurzes Erklärvideo ansehen</span><span data-l="en">▶️ Watch the short explainer video</span></a></p>
+  <p class="small" data-l="de">Kein Live-Standort: Deine Leute sehen nur, was du selbst einträgst.</p>
+  <p class="small" data-l="en">No live location: your people only see what you enter yourself.</p>
 </div>
 
 <div class="card">
-  <h2 data-l="de">❓ Klappt nicht?</h2><h2 data-l="en">❓ Not working?</h2>
-  <ul data-l="de">
-    <li><b>„Nicht berechtigt“ / „nicht verfügbar“:</b> Link in <b>Chrome</b> öffnen (nicht im WhatsApp-Browser) und oben rechts mit dem Google-Konto aus dem Play Store anmelden.</li>
-    <li>Nach dem Beitritt kann es ein paar Minuten dauern, bis Schritt 2 funktioniert.</li>
-    <li>Fragen? <a href="mailto:meetusther26@gmail.com">meetusther26@gmail.com</a></li>
-  </ul>
-  <ul data-l="en">
-    <li><b>“No permission” / “not available”:</b> open the link in <b>Chrome</b> (not inside WhatsApp/Reddit) and sign in with your Play Store Google account.</li>
-    <li>After joining the group it can take a few minutes until step 2 works.</li>
-    <li>Questions? <a href="mailto:meetusther26@gmail.com">meetusther26@gmail.com</a></li>
-  </ul>
-  <div data-l="de"><p class="small" style="margin-top:14px">Anleitung als Video (1 Minute):</p><video src="anleitung.mp4" controls playsinline preload="metadata"></video></div>
-</div>
-
-<div class="card">
-  <h2>🍏 iPhone</h2>
-  <p class="small" data-l="de">Die iPhone-Version ist bei Apple in Prüfung und kommt in Kürze in den App Store.</p>
-  <p class="small" data-l="en">The iPhone version is in review at Apple and coming to the App Store soon.</p>
+  <h2 data-l="de">🙌 Android-Tester (bis zur Veröffentlichung)</h2><h2 data-l="en">🙌 Android testers (until release)</h2>
+  <p class="small" data-l="de">1. Mit dem Google-Konto aus dem Play Store der <a href="https://groups.google.com/g/meet-us-there-tester" target="_blank" rel="noopener">Testgruppe beitreten</a>. 2. <a href="https://play.google.com/apps/testing/de.meetusthere.app" target="_blank" rel="noopener">Tester werden</a> und installieren. Links am besten in Chrome öffnen. Zum Ausprobieren unter „Meine Leute“ den Code <b>4YUWWE</b> eingeben.</p>
+  <p class="small" data-l="en">1. <a href="https://groups.google.com/g/meet-us-there-tester" target="_blank" rel="noopener">Join the tester group</a> with your Play Store Google account. 2. <a href="https://play.google.com/apps/testing/de.meetusthere.app" target="_blank" rel="noopener">Become a tester</a> and install. Best open the links in Chrome. To try it out, enter the code <b>4YUWWE</b> under “My people”.</p>
+  <p class="small" data-l="de">Fragen? <a href="mailto:meetusther26@gmail.com">meetusther26@gmail.com</a></p>
+  <p class="small" data-l="en">Questions? <a href="mailto:meetusther26@gmail.com">meetusther26@gmail.com</a></p>
 </div>
 
 <script>
