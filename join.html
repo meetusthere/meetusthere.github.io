@@ -23,6 +23,7 @@
 <main>
   <div class="card">
     <h1 data-l="de">Du bist eingeladen 👋</h1><h1 data-l="en">You're invited 👋</h1>
+    <p data-circle style="display:none"><b data-l="de">Einladung in einen Kreis:</b><b data-l="en">Invitation to a circle:</b> <span data-l="de">Wer beitritt, ist mit allen im Kreis verbunden (z.B. Kita-Eltern, Verein, Nachbarn). In der App siehst du vorher, wer schon dabei ist.</span><span data-l="en">Whoever joins is connected with everyone in the circle (e.g. daycare parents, club, neighbours). In the app you see beforehand who is already in.</span></p>
     <p data-l="de">Mit „Meet us There“ sagen Freunde, wann und wo sie sowieso sind – wer mag, kommt vorbei. Ohne Gruppenchat, ohne Zusagen.</p>
     <p data-l="en">With “Meet us There” friends share when and where they'll be anyway – whoever likes drops by. No group chat, no RSVPs.</p>
     <div class="code" id="code">······</div>
@@ -47,12 +48,18 @@
 </main>
 <script>
   var q = new URLSearchParams(location.search);
-  var code = (q.get('c') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
+  // ?c=CODE = persönliche Einladung (6 Zeichen), ?k=CODE = Kreis (8 Zeichen)
+  var circle = !!q.get('k');
+  var code = (q.get(circle ? 'k' : 'c') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, circle ? 8 : 6);
   document.documentElement.lang = (navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
   if (code) document.getElementById('code').textContent = code;
   else { document.getElementById('code').style.display = 'none'; document.getElementById('open').style.display = 'none'; }
   // Öffnet die App direkt mit dem Code (nur auf Knopfdruck, damit ohne App keine Fehlermeldung erscheint)
-  document.getElementById('open').href = 'meetusthere://join?c=' + encodeURIComponent(code);
+  document.getElementById('open').href = 'meetusthere://join?' + (circle ? 'k=' : 'c=') + encodeURIComponent(code);
+  if (circle) {
+    document.querySelectorAll('[data-circle]').forEach(function (e) { e.style.display = 'block'; });
+    document.querySelectorAll('[data-person]').forEach(function (e) { e.style.display = 'none'; });
+  }
 </script>
 </body>
 </html>
