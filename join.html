@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Einladung – Meet us There</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Meet us There">
+<meta property="og:title" content="Du bist eingeladen – Meet us There">
+<meta property="og:description" content="Sag, wann und wo du sowieso bist – wer mag, kommt vorbei. Hier die App holen und mit einem Tipp verbinden.">
+<meta property="og:image" content="https://meetusthere.github.io/og-image.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta property="og:url" content="https://meetusthere.github.io/join.html">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   body { margin: 0; background: #F3F6F5; color: #1D2B2E; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.5; }
   main { max-width: 480px; margin: 0 auto; padding: 24px 16px 48px; }
@@ -23,10 +32,13 @@
 <main>
   <div class="card">
     <h1 data-l="de">Du bist eingeladen 👋</h1><h1 data-l="en">You're invited 👋</h1>
-    <p data-circle style="display:none"><b data-l="de">Einladung in einen Kreis:</b><b data-l="en">Invitation to a circle:</b> <span data-l="de">Wer beitritt, ist mit allen im Kreis verbunden (z.B. Kita-Eltern, Verein, Nachbarn). In der App siehst du vorher, wer schon dabei ist.</span><span data-l="en">Whoever joins is connected with everyone in the circle (e.g. daycare parents, club, neighbours). In the app you see beforehand who is already in.</span></p>
+    <p data-circle style="display:none"><b data-l="de">Einladung in einen Kreis:</b><b data-l="en">Invitation to a circle:</b> <span data-l="de">Wer beitritt, ist mit allen im Kreis verbunden (z.B. Verein, Nachbarn, Freundeskreis). In der App siehst du vorher, wer schon dabei ist.</span><span data-l="en">Whoever joins is connected with everyone in the circle (e.g. club, neighbours, friends). In the app you see beforehand who is already in.</span></p>
     <p data-l="de">Mit „Meet us There“ sagen Freunde, wann und wo sie sowieso sind – wer mag, kommt vorbei. Ohne Gruppenchat, ohne Zusagen.</p>
     <p data-l="en">With “Meet us There” friends share when and where they'll be anyway – whoever likes drops by. No group chat, no RSVPs.</p>
     <div class="code" id="code">······</div>
+    <button class="btn alt" id="copy" type="button" style="width:100%;cursor:pointer;font-family:inherit"><span data-l="de">📋 Code kopieren</span><span data-l="en">📋 Copy code</span></button>
+    <p class="small" data-l="de">Tipp: Code kopieren, bevor du die App installierst – dann kannst du ihn nach der Registrierung unter „Meine Leute“ einfach einfügen.</p>
+    <p class="small" data-l="en">Tip: copy the code before installing the app – then you can simply paste it under “My people” after signing up.</p>
     <a class="btn" id="open" href="#"><span data-l="de">Ich habe die App – jetzt verbinden</span><span data-l="en">I have the app – connect now</span></a>
     <p class="small" data-l="de">Öffnet sich nichts? Dann ist die App noch nicht installiert – siehe unten.</p>
     <p class="small" data-l="en">Nothing happens? Then the app isn't installed yet – see below.</p>
@@ -53,7 +65,14 @@
   var code = (q.get(circle ? 'k' : 'c') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, circle ? 8 : 6);
   document.documentElement.lang = (navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
   if (code) document.getElementById('code').textContent = code;
-  else { document.getElementById('code').style.display = 'none'; document.getElementById('open').style.display = 'none'; }
+  else { document.getElementById('code').style.display = 'none'; document.getElementById('open').style.display = 'none'; document.getElementById('copy').style.display = 'none'; }
+  // Code in die Zwischenablage kopieren (mit Rückmeldung am Knopf)
+  document.getElementById('copy').addEventListener('click', function () {
+    var b = this, de = document.documentElement.lang === 'de';
+    var done = function () { b.textContent = de ? '✔ Code kopiert' : '✔ Code copied'; };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(done, function () { prompt(de ? 'Code:' : 'Code:', code); });
+    else prompt('Code:', code);
+  });
   // Öffnet die App direkt mit dem Code (nur auf Knopfdruck, damit ohne App keine Fehlermeldung erscheint)
   document.getElementById('open').href = 'meetusthere://join?' + (circle ? 'k=' : 'c=') + encodeURIComponent(code);
   if (circle) {
