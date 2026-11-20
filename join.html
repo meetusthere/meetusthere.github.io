@@ -31,11 +31,9 @@
 <body>
 <main>
   <div class="card">
-    <div data-person><h1 data-l="de">Du bist eingeladen 👋</h1><h1 data-l="en">You're invited 👋</h1></div>
-    <div data-circle style="display:none"><h1 data-l="de">Dieser Link gilt nicht mehr</h1><h1 data-l="en">This link no longer works</h1></div>
-    <p data-circle style="display:none"><b data-l="de">Diesen Kreis-Link gibt es nicht mehr.</b><b data-l="en">This circle link no longer works.</b> <span data-l="de">Kreise wurden abgeschafft. Frag die Person, die dir den Link geschickt hat, nach ihrem persönlichen Link – dann seid ihr direkt miteinander verbunden.</span><span data-l="en">Circles have been discontinued. Ask the person who sent you the link for their personal link – then you'll be connected directly.</span></p>
-    <p data-person data-l="de">Mit „Meet us There“ sagen Freunde, wann und wo sie sowieso sind – wer mag, kommt vorbei. Ohne Gruppenchat, ohne Zusagen.</p>
-    <p data-person data-l="en">With “Meet us There” friends share when and where they'll be anyway – whoever likes drops by. No group chat, no RSVPs.</p>
+    <h1 data-l="de">Du bist eingeladen 👋</h1><h1 data-l="en">You're invited 👋</h1>
+    <p data-l="de">Mit „Meet us There“ sagen Freunde, wann und wo sie sowieso sind – wer mag, kommt vorbei. Ohne Gruppenchat, ohne Zusagen.</p>
+    <p data-l="en">With “Meet us There” friends share when and where they'll be anyway – whoever likes drops by. No group chat, no RSVPs.</p>
     <div class="code" id="code">······</div>
     <button class="btn alt" id="copy" type="button" style="width:100%;cursor:pointer;font-family:inherit"><span data-l="de">📋 Code kopieren</span><span data-l="en">📋 Copy code</span></button>
     <p class="small" data-l="de">Tipp: Code kopieren, bevor du die App installierst – dann kannst du ihn nach der Registrierung unter „Meine Leute“ einfach einfügen.</p>
@@ -61,9 +59,8 @@
 </main>
 <script>
   var q = new URLSearchParams(location.search);
-  // ?c=CODE = persönliche Einladung (6 Zeichen), ?k=CODE = Kreis (8 Zeichen)
-  var circle = !!q.get('k');
-  var code = (q.get(circle ? 'k' : 'c') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, circle ? 8 : 6);
+  // ?c=CODE = persönliche Einladung (6 Zeichen)
+  var code = (q.get('c') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
   document.documentElement.lang = (navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
   if (code) document.getElementById('code').textContent = code;
   else { document.getElementById('code').style.display = 'none'; document.getElementById('open').style.display = 'none'; document.getElementById('copy').style.display = 'none'; }
@@ -75,12 +72,7 @@
     else prompt('Code:', code);
   });
   // Öffnet die App direkt mit dem Code (nur auf Knopfdruck, damit ohne App keine Fehlermeldung erscheint)
-  document.getElementById('open').href = 'meetusthere://join?' + (circle ? 'k=' : 'c=') + encodeURIComponent(code);
-  if (circle) {
-    document.querySelectorAll('[data-circle]').forEach(function (e) { e.style.display = 'block'; });
-    ['code', 'copy', 'open'].forEach(function (id) { document.getElementById(id).style.display = 'none'; });
-    document.querySelectorAll('[data-person]').forEach(function (e) { e.style.display = 'none'; });
-  }
+  document.getElementById('open').href = 'meetusthere://join?c=' + encodeURIComponent(code);
 </script>
 </body>
 </html>
