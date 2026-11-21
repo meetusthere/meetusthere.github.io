@@ -16,9 +16,7 @@
 body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:760px;margin:0 auto;padding:20px 16px 60px;color:var(--text);background:var(--bg);line-height:1.55}
 nav{display:flex;flex-wrap:wrap;gap:6px 14px;margin-bottom:18px;font-size:14px;align-items:center}
 nav a{color:var(--accentText);font-weight:600;text-decoration:none}
-.lang{margin-left:auto;display:flex;gap:6px}
-.lang button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-weight:700;cursor:pointer;color:var(--muted)}
-.lang button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.lang{margin-left:auto;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 10px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;color:var(--muted)}
 .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:16px}
 .hero{display:flex;gap:16px;align-items:center}
 .logo{width:64px;height:64px;border-radius:16px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
@@ -36,17 +34,17 @@ ul{padding-left:20px;margin:8px 0}li{margin:4px 0}
 video{width:100%;max-width:320px;border-radius:16px;display:block;margin:6px auto 0;background:#000}
 .small{font-size:13.5px;color:var(--muted)}
 html [data-l]{display:none!important}
-html[lang=de] [data-l=de],html[lang=en] [data-l=en]{display:revert!important}
-html[lang=de] .step b[data-l=de],html[lang=en] .step b[data-l=en]{display:block!important}
+html[lang=de] [data-l=de],html[lang=en] [data-l=en],html[lang=es] [data-l=es],html[lang=it] [data-l=it],html[lang=pt] [data-l=pt],html[lang=fr] [data-l=fr],html[lang=pl] [data-l=pl]{display:revert!important}
+html[lang=de] .step b[data-l=de],html[lang=en] .step b[data-l=en],html[lang=es] .step b[data-l=es],html[lang=it] .step b[data-l=it],html[lang=pt] .step b[data-l=pt],html[lang=fr] .step b[data-l=fr],html[lang=pl] .step b[data-l=pl]{display:block!important}
 </style></head><body>
 
 <nav><strong>Meet us There</strong>
-<a href="datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span></a>
-<a href="impressum.html"><span data-l="de">Impressum</span><span data-l="en">Legal notice</span></a>
-<a href="nutzung.html"><span data-l="de">Nutzungsbedingungen</span><span data-l="en">Terms</span></a>
-<a href="loeschen.html"><span data-l="de">Konto löschen</span><span data-l="en">Delete account</span></a>
-<a href="kinderschutz.html"><span data-l="de">Kinderschutz</span><span data-l="en">Child safety</span></a>
-<span class="lang"><button id="b-de" onclick="setLang('de')">DE</button><button id="b-en" onclick="setLang('en')">EN</button></span>
+<a href="datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span><span data-l="es">Privacidad</span><span data-l="it">Privacy</span><span data-l="pt">Privacidade</span><span data-l="fr">Confidentialité</span><span data-l="pl">Prywatność</span></a>
+<a href="impressum.html"><span data-l="de">Impressum</span><span data-l="en">Legal notice</span><span data-l="es">Aviso legal</span><span data-l="it">Note legali</span><span data-l="pt">Aviso legal</span><span data-l="fr">Mentions légales</span><span data-l="pl">Nota prawna</span></a>
+<a href="nutzung.html"><span data-l="de">Nutzungsbedingungen</span><span data-l="en">Terms</span><span data-l="es">Condiciones de uso</span><span data-l="it">Condizioni d'uso</span><span data-l="pt">Termos de uso</span><span data-l="fr">Conditions d'utilisation</span><span data-l="pl">Regulamin</span></a>
+<a href="loeschen.html"><span data-l="de">Konto löschen</span><span data-l="en">Delete account</span><span data-l="es">Eliminar cuenta</span><span data-l="it">Elimina account</span><span data-l="pt">Excluir conta</span><span data-l="fr">Supprimer le compte</span><span data-l="pl">Usuń konto</span></a>
+<a href="kinderschutz.html"><span data-l="de">Kinderschutz</span><span data-l="en">Child safety</span><span data-l="es">Protección de menores</span><span data-l="it">Tutela dei minori</span><span data-l="pt">Proteção de menores</span><span data-l="fr">Protection des mineurs</span><span data-l="pl">Ochrona dzieci</span></a>
+<select class="lang" id="langSel" aria-label="Language" onchange="setLang(this.value)"><option value="de">Deutsch</option><option value="en">English</option><option value="es">Español</option><option value="it">Italiano</option><option value="pt">Português</option><option value="fr">Français</option><option value="pl">Polski</option></select>
 </nav>
 
 <div class="card">
@@ -55,57 +53,59 @@ html[lang=de] .step b[data-l=de],html[lang=en] .step b[data-l=en]{display:block!
     <h1>Meet us There</h1>
   </div>
   <p class="lead" data-l="de">Sag einfach, wann du wo bist – wer mag, kommt vorbei. Keine Zusagen, kein Gruppenchat, kein Druck. Nur für die Leute, die du auswählst.</p>
-  <p class="lead" data-l="en">Just share when you'll be where – whoever likes drops by. No RSVPs, no group chat, no pressure. Only for the people you choose.</p>
+  <p class="lead" data-l="en">Just share when you'll be where – whoever likes drops by. No RSVPs, no group chat, no pressure. Only for the people you choose.</p><p class="lead" data-l="es">Cuenta simplemente cuándo y dónde estarás: quien quiera, se pasa. Sin confirmaciones, sin chat de grupo, sin presión. Solo para las personas que tú elijas.</p><p class="lead" data-l="it">Condividi semplicemente quando e dove sarai: chi vuole, passa. Niente conferme, niente chat di gruppo, nessuna pressione. Solo per le persone che scegli tu.</p><p class="lead" data-l="pt">Conte simplesmente quando e onde você vai estar: quem quiser, aparece. Sem confirmações, sem grupo de chat, sem pressão. Só para as pessoas que você escolher.</p><p class="lead" data-l="fr">Dis simplement quand et où tu seras : ceux qui ont envie passent te voir. Sans réponses obligatoires, sans groupe de discussion, sans pression. Uniquement pour les personnes que tu choisis.</p><p class="lead" data-l="pl">Po prostu napisz, kiedy i gdzie będziesz – kto chce, wpada. Bez potwierdzeń, bez czatu grupowego, bez presji. Tylko dla osób, które sam(a) wybierzesz.</p>
 </div>
 
 <div class="card">
-  <h2 data-l="de">📲 App holen – kostenlos</h2><h2 data-l="en">📲 Get the app – free</h2>
-  <a class="btn" href="https://apps.apple.com/app/id6828419629" target="_blank" rel="noopener">🍏 <span data-l="de">Im App Store laden</span><span data-l="en">Download on the App Store</span></a>
-  <a class="btn" href="https://play.google.com/store/apps/details?id=de.meetusthere.app" target="_blank" rel="noopener" style="margin-top:8px">🤖 <span data-l="de">Bei Google Play laden</span><span data-l="en">Get it on Google Play</span></a>
+  <h2 data-l="de">📲 App holen – kostenlos</h2><h2 data-l="en">📲 Get the app – free</h2><h2 data-l="es">📲 Consigue la app – gratis</h2><h2 data-l="it">📲 Scarica l'app – gratis</h2><h2 data-l="pt">📲 Baixe o app – grátis</h2><h2 data-l="fr">📲 Télécharge l'appli – gratuit</h2><h2 data-l="pl">📲 Pobierz aplikację – za darmo</h2>
+  <a class="btn" href="https://apps.apple.com/app/id6828419629" target="_blank" rel="noopener">🍏 <span data-l="de">Im App Store laden</span><span data-l="en">Download on the App Store</span><span data-l="es">Descargar en el App Store</span><span data-l="it">Scarica dall'App Store</span><span data-l="pt">Baixar na App Store</span><span data-l="fr">Télécharger sur l'App Store</span><span data-l="pl">Pobierz z App Store</span></a>
+  <a class="btn" href="https://play.google.com/store/apps/details?id=de.meetusthere.app" target="_blank" rel="noopener" style="margin-top:8px">🤖 <span data-l="de">Bei Google Play laden</span><span data-l="en">Get it on Google Play</span><span data-l="es">Disponible en Google Play</span><span data-l="it">Scarica da Google Play</span><span data-l="pt">Baixar no Google Play</span><span data-l="fr">Disponible sur Google Play</span><span data-l="pl">Pobierz z Google Play</span></a>
   <p class="small" data-l="de" style="margin-top:10px">Fragen? <a href="mailto:kontakt@wemanage.de">kontakt@wemanage.de</a></p>
-  <p class="small" data-l="en" style="margin-top:10px">Questions? <a href="mailto:kontakt@wemanage.de">kontakt@wemanage.de</a></p>
+  <p class="small" data-l="en" style="margin-top:10px">Questions? <a href="mailto:kontakt@wemanage.de">kontakt@wemanage.de</a></p><p class="small" data-l="es" style="margin-top:10px">¿Preguntas? <a href="mailto:kontakt@wemanage.de">kontakt@wemanage.de</a></p><p class="small" data-l="it" style="margin-top:10px">Domande? <a href="mailto:kontakt@wemanage.de">kontakt@wemanage.de</a></p><p class="small" data-l="pt" style="margin-top:10px">Dúvidas? <a href="mailto:kontakt@wemanage.de">kontakt@wemanage.de</a></p><p class="small" data-l="fr" style="margin-top:10px">Des questions ? <a href="mailto:kontakt@wemanage.de">kontakt@wemanage.de</a></p><p class="small" data-l="pl" style="margin-top:10px">Pytania? <a href="mailto:kontakt@wemanage.de">kontakt@wemanage.de</a></p>
 </div>
 
 <div class="card">
-  <h2 data-l="de">✨ So geht's</h2><h2 data-l="en">✨ How it works</h2>
+  <h2 data-l="de">✨ So geht's</h2><h2 data-l="en">✨ How it works</h2><h2 data-l="es">✨ Cómo funciona</h2><h2 data-l="it">✨ Come funziona</h2><h2 data-l="pt">✨ Como funciona</h2><h2 data-l="fr">✨ Comment ça marche</h2><h2 data-l="pl">✨ Jak to działa</h2>
   <div class="step"><div class="num">1</div><div>
-    <b data-l="de">Sag, wann du wo bist</b><b data-l="en">Share when you'll be where</b>
+    <b data-l="de">Sag, wann du wo bist</b><b data-l="en">Share when you'll be where</b><b data-l="es">Cuenta cuándo y dónde estarás</b><b data-l="it">Condividi quando e dove sarai</b><b data-l="pt">Conte quando e onde você vai estar</b><b data-l="fr">Dis quand et où tu seras</b><b data-l="pl">Napisz, kiedy i gdzie będziesz</b>
     <p data-l="de">Café, Park, Garten, Spielplatz oder zu Hause: Ort und Zeit eintragen und auswählen, wer es sehen darf – alle, eine Gruppe wie die Nachbarn oder nur Einzelne.</p>
-    <p data-l="en">Café, park, back yard, playground or at home: add place and time and choose who may see it – everyone, a group like your neighbours, or just a few.</p>
+    <p data-l="en">Café, park, back yard, playground or at home: add place and time and choose who may see it – everyone, a group like your neighbours, or just a few.</p><p data-l="es">Café, parque, jardín, parque infantil o en casa: añade lugar y hora y elige quién puede verlo: todos, un grupo como tus vecinos o solo algunas personas.</p><p data-l="it">Caffè, parco, giardino, parco giochi o a casa: inserisci luogo e orario e scegli chi può vederlo – tutti, un gruppo come i vicini o solo alcune persone.</p><p data-l="pt">Café, parque, quintal, playground ou em casa: informe o local e o horário e escolha quem pode ver – todo mundo, um grupo como os vizinhos ou só algumas pessoas.</p><p data-l="fr">Café, parc, jardin, aire de jeux ou chez toi : indique le lieu et l'heure, puis choisis qui peut le voir – tout le monde, un groupe comme tes voisins, ou seulement quelques personnes.</p><p data-l="pl">Kawiarnia, park, ogród, plac zabaw albo dom: wpisz miejsce i godzinę i wybierz, kto może to zobaczyć – wszyscy, grupa, na przykład sąsiedzi, albo tylko kilka osób.</p>
   </div></div>
   <div class="step"><div class="num">2</div><div>
-    <b data-l="de">Wer mag, kommt vorbei</b><b data-l="en">Whoever likes drops by</b>
+    <b data-l="de">Wer mag, kommt vorbei</b><b data-l="en">Whoever likes drops by</b><b data-l="es">Quien quiera, se pasa</b><b data-l="it">Chi vuole, passa</b><b data-l="pt">Quem quiser, aparece</b><b data-l="fr">Ceux qui ont envie passent</b><b data-l="pl">Kto chce, wpada</b>
     <p data-l="de">Kein Nachfragen in Gruppen, keine Zusagen, kein schlechtes Gewissen, wenn man doch nicht kommt.</p>
-    <p data-l="en">No asking around in group chats, no RSVPs, no guilt if you don't make it after all.</p>
+    <p data-l="en">No asking around in group chats, no RSVPs, no guilt if you don't make it after all.</p><p data-l="es">Sin preguntar en chats de grupo, sin confirmaciones, sin remordimientos si al final no puedes ir.</p><p data-l="it">Niente giri di domande nelle chat di gruppo, niente conferme, nessun senso di colpa se poi non riesci a venire.</p><p data-l="pt">Sem ficar perguntando em grupos de chat, sem confirmações, sem culpa se no fim você não conseguir ir.</p><p data-l="fr">Pas besoin de demander dans les groupes de discussion, pas de réponses obligatoires, pas de culpabilité si tu ne peux finalement pas venir.</p><p data-l="pl">Żadnego dopytywania na czatach grupowych, żadnych potwierdzeń, żadnych wyrzutów sumienia, jeśli jednak nie dasz rady przyjść.</p>
   </div></div>
   <div class="step"><div class="num">3</div><div>
-    <b data-l="de">Leute verbinden</b><b data-l="en">Connect your people</b>
+    <b data-l="de">Leute verbinden</b><b data-l="en">Connect your people</b><b data-l="es">Conecta a tu gente</b><b data-l="it">Collega le tue persone</b><b data-l="pt">Conecte suas pessoas</b><b data-l="fr">Connecte tes proches</b><b data-l="pl">Połącz się ze swoimi ludźmi</b>
     <p data-l="de">Unter „Meine Leute“ auf „Freunde einladen“ tippen und den Link per WhatsApp schicken. Wer ihn öffnet, ist nach der Anmeldung mit dir verbunden.</p>
-    <p data-l="en">Under “My people” tap “Invite friends” and send the link via WhatsApp. Whoever opens it is connected with you after signing up.</p>
+    <p data-l="en">Under “My people” tap “Invite friends” and send the link via WhatsApp. Whoever opens it is connected with you after signing up.</p><p data-l="es">En “Mi gente” toca “Invitar amigos” y envía el enlace por WhatsApp. Quien lo abra queda conectado contigo después de registrarse.</p><p data-l="it">In “Le mie persone” tocca “Invita amici” e invia il link su WhatsApp. Chi lo apre è collegato a te dopo la registrazione.</p><p data-l="pt">Em “Minhas pessoas” toque em “Convidar amigos” e envie o link pelo WhatsApp. Quem abrir fica conectado com você depois de se cadastrar.</p><p data-l="fr">Dans « Mes proches », touche « Inviter des amis » et envoie le lien par WhatsApp. Celui qui l'ouvre est connecté à toi après son inscription.</p><p data-l="pl">W „Moi ludzie” dotknij „Zaproś znajomych” i wyślij link przez WhatsApp. Kto go otworzy, po rejestracji będzie z Tobą połączony.</p>
   </div></div>
-  <p class="small"><a href="video.html"><span data-l="de">▶️ Kurzes Erklärvideo ansehen</span><span data-l="en">▶️ Watch the short explainer video</span></a></p>
+  <p class="small"><a href="video.html"><span data-l="de">▶️ Kurzes Erklärvideo ansehen</span><span data-l="en">▶️ Watch the short explainer video</span><span data-l="es">▶️ Ver el breve vídeo explicativo</span><span data-l="it">▶️ Guarda il breve video esplicativo</span><span data-l="pt">▶️ Assista ao vídeo explicativo curto</span><span data-l="fr">▶️ Regarder la courte vidéo explicative</span><span data-l="pl">▶️ Obejrzyj krótki film wyjaśniający</span></a></p>
   <p class="small" data-l="de">Kein Live-Standort: Deine Leute sehen nur, was du selbst einträgst.</p>
-  <p class="small" data-l="en">No live location: your people only see what you enter yourself.</p>
+  <p class="small" data-l="en">No live location: your people only see what you enter yourself.</p><p class="small" data-l="es">Sin ubicación en vivo: tu gente solo ve lo que tú mismo introduces.</p><p class="small" data-l="it">Nessuna posizione in tempo reale: le tue persone vedono solo ciò che inserisci tu.</p><p class="small" data-l="pt">Sem localização em tempo real: suas pessoas só veem o que você mesmo informar.</p><p class="small" data-l="fr">Pas de position en direct : tes proches voient uniquement ce que tu saisis toi-même.</p><p class="small" data-l="pl">Bez lokalizacji na żywo: Twoi ludzie widzą tylko to, co sam(a) wpiszesz.</p>
 </div>
 
 <div class="card">
-  <h2 data-l="de">☕ Einfach mal vorbeikommen – wie früher</h2><h2 data-l="en">☕ Just dropping by – like in the old days</h2>
+  <h2 data-l="de">☕ Einfach mal vorbeikommen – wie früher</h2><h2 data-l="en">☕ Just dropping by – like in the old days</h2><h2 data-l="es">☕ Pasarse sin más, como antes</h2><h2 data-l="it">☕ Passare a trovarsi, come una volta</h2><h2 data-l="pt">☕ Aparecer sem avisar, como antigamente</h2><h2 data-l="fr">☕ Passer sans prévenir, comme avant</h2><h2 data-l="pl">☕ Wpaść bez zapowiedzi – jak dawniej</h2>
   <p data-l="de">Früher kam man bei Freunden und Verwandten einfach vorbei. Heute wird jeder Besuch per WhatsApp abgesprochen – oder er findet gar nicht statt.</p>
-  <p data-l="en">People used to simply drop in on friends and family. Today every visit gets arranged over WhatsApp – or doesn't happen at all.</p>
+  <p data-l="en">People used to simply drop in on friends and family. Today every visit gets arranged over WhatsApp – or doesn't happen at all.</p><p data-l="es">Antes uno simplemente se pasaba por casa de amigos y familiares. Hoy cada visita se organiza por WhatsApp, o no se hace.</p><p data-l="it">Una volta si passava semplicemente da amici e parenti. Oggi ogni visita si organizza su WhatsApp, oppure non avviene affatto.</p><p data-l="pt">Antigamente a gente simplesmente aparecia na casa de amigos e parentes. Hoje cada visita é combinada pelo WhatsApp, ou nem acontece.</p><p data-l="fr">Autrefois, on passait simplement voir ses amis et sa famille. Aujourd'hui, chaque visite s'organise par WhatsApp, ou n'a tout simplement pas lieu.</p><p data-l="pl">Dawniej do przyjaciół i rodziny po prostu się wpadało. Dziś każda wizyta jest umawiana przez WhatsApp – albo w ogóle nie dochodzi do skutku.</p>
   <p data-l="de">Mit Meet us There trägst du einfach dein Zuhause ein, z.B. <i>„Heute 14–16 Uhr – Lust auf Kaffee und Kuchen?“</i> Wer es sieht, weiß: Da kann ich einfach klingeln.</p>
-  <p data-l="en">With Meet us There you simply add your home, e.g. <i>“Today 2–4 pm – fancy coffee and cake?”</i> Whoever sees it knows: I can just ring the bell.</p>
+  <p data-l="en">With Meet us There you simply add your home, e.g. <i>“Today 2–4 pm – fancy coffee and cake?”</i> Whoever sees it knows: I can just ring the bell.</p><p data-l="es">Con Meet us There simplemente añades tu casa, p. ej. <i>“Hoy de 14 a 16 h: ¿te apetece café y tarta?”</i> Quien lo vea sabe: puedo llamar a la puerta sin más.</p><p data-l="it">Con Meet us There inserisci semplicemente casa tua, ad es. <i>“Oggi 14–16 – ti va un caffè con una fetta di torta?”</i> Chi lo vede sa: posso semplicemente suonare il campanello.</p><p data-l="pt">Com o Meet us There você simplesmente adiciona a sua casa, por exemplo <i>“Hoje das 14h às 16h – que tal um café com bolo?”</i> Quem vir sabe: posso simplesmente tocar a campainha.</p><p data-l="fr">Avec Meet us There, tu indiques simplement ta maison, par exemple <i>« Aujourd'hui de 14 h à 16 h – un café et du gâteau ? »</i> Celui qui le voit sait : je peux simplement sonner.</p><p data-l="pl">W Meet us There po prostu wpisujesz swój dom, np. <i>„Dziś 14–16 – masz ochotę na kawę i ciasto?”</i> Kto to zobaczy, wie: mogę po prostu zadzwonić do drzwi.</p>
 </div>
 
 <div class="card">
-  <h2 data-l="de">🌿 Neue Lieblingsorte entdecken</h2><h2 data-l="en">🌿 Discover new favourite places</h2>
+  <h2 data-l="de">🌿 Neue Lieblingsorte entdecken</h2><h2 data-l="en">🌿 Discover new favourite places</h2><h2 data-l="es">🌿 Descubre nuevos lugares favoritos</h2><h2 data-l="it">🌿 Scopri nuovi posti del cuore</h2><h2 data-l="pt">🌿 Descubra novos lugares favoritos</h2><h2 data-l="fr">🌿 Découvre de nouveaux lieux favoris</h2><h2 data-l="pl">🌿 Odkrywaj nowe ulubione miejsca</h2>
   <p data-l="de">Du musst nicht überall hingehen, wo deine Leute sind. Aber du siehst, wo es schön ist – ein Café, ein Spielplatz, ein See – und findest Ideen für deine eigenen nächsten Pläne.</p>
-  <p data-l="en">You don't have to go wherever your people are. But you see where it's nice – a café, a playground, a lake – and find ideas for your own next plans.</p>
+  <p data-l="en">You don't have to go wherever your people are. But you see where it's nice – a café, a playground, a lake – and find ideas for your own next plans.</p><p data-l="es">No tienes que ir a todos los sitios donde esté tu gente. Pero ves dónde se está bien (un café, un parque infantil, un lago) y encuentras ideas para tus próximos planes.</p><p data-l="it">Non devi andare ovunque siano le tue persone. Ma vedi dove si sta bene – un caffè, un parco giochi, un lago – e trovi idee per i tuoi prossimi piani.</p><p data-l="pt">Você não precisa ir a todo lugar onde suas pessoas estão. Mas vê onde é gostoso – um café, um playground, um lago – e encontra ideias para os seus próximos planos.</p><p data-l="fr">Tu n'as pas besoin d'aller partout où sont tes proches. Mais tu vois où l'on est bien – un café, une aire de jeux, un lac – et tu trouves des idées pour tes prochains projets.</p><p data-l="pl">Nie musisz chodzić wszędzie tam, gdzie są Twoi ludzie. Ale widzisz, gdzie jest przyjemnie – kawiarnia, plac zabaw, jezioro – i znajdujesz pomysły na własne plany.</p>
 </div>
 
 <script>
-function setLang(l){document.documentElement.lang=l;document.getElementById('b-de').className=l==='de'?'on':'';document.getElementById('b-en').className=l==='en'?'on':'';try{localStorage.setItem('lang',l)}catch(e){}}
+var LANGS=['de','en','es','it','pt','fr','pl'];
+function setLang(l){document.documentElement.lang=l;var s=document.getElementById('langSel');if(s)s.value=l;try{localStorage.setItem('lang',l)}catch(e){}}
 var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
 var q=new URLSearchParams(location.search).get('lang');
-setLang(q==='en'||q==='de'?q:(saved||((navigator.language||'de').toLowerCase().startsWith('de')?'de':'en')));
+var nav=(navigator.language||'en').toLowerCase().slice(0,2);
+setLang(LANGS.indexOf(q)>=0?q:LANGS.indexOf(saved)>=0?saved:LANGS.indexOf(nav)>=0?nav:'en');
 </script>
 </body></html>

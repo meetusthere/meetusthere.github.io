@@ -7,7 +7,7 @@
 <style>
   body { margin: 0; background: #F3F6F5; color: #1D2B2E; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
   .top { display: flex; align-items: center; gap: 6px; padding: 12px 16px; }
-  .langs { display: flex; gap: 6px; }
+  .langs { display: flex; gap: 6px; flex-wrap: wrap; }
   .langs button { font: inherit; font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 999px; border: 1px solid #E1E8E6; background: #fff; color: #4F6166; cursor: pointer; }
   .langs button.on { background: #3F8F80; border-color: #3F8F80; color: #fff; }
   main { max-width: 440px; margin: 0 auto; padding: 4px 16px 40px; }
@@ -19,8 +19,13 @@
 <body>
 <div class="top">
   <div class="langs">
-    <button data-l="de">Deutsch</button>
-    <button data-l="en">English</button>
+    <button data-l="de">DE</button>
+    <button data-l="en">EN</button>
+    <button data-l="es">ES</button>
+    <button data-l="it">IT</button>
+    <button data-l="pt">PT</button>
+    <button data-l="fr">FR</button>
+    <button data-l="pl">PL</button>
   </div>
 </div>
 <main>
@@ -29,29 +34,37 @@
   <p id="p"></p>
 </main>
 <script>
-  // Eine Seite für beide Sprachen: ?lang=de|en
+  // Eine Seite für alle Sprachen: ?lang=de|en|es|it|pt|fr|pl – Video gibt es auf Deutsch und Englisch (sonst Englisch)
   var T = {
     de: { title: 'Meet us There – Erklärvideo', h: 'So funktioniert Meet us There', p: 'Sag, wo du sowieso bist. Wer mag, kommt vorbei – keine Zusagen, kein Druck.' },
-    en: { title: 'Meet us There – Explainer video', h: 'How Meet us There works', p: "Share where you'll be anyway. Whoever likes drops by – no commitments, no pressure." }
+    en: { title: 'Meet us There – Explainer video', h: 'How Meet us There works', p: "Share where you'll be anyway. Whoever likes drops by – no commitments, no pressure." },
+    es: { title: 'Meet us There – Vídeo explicativo', h: 'Así funciona Meet us There', p: 'Di dónde vas a estar de todos modos. Quien quiera, se pasa – sin compromisos, sin presión. (Vídeo en inglés)' },
+    it: { title: 'Meet us There – Video introduttivo', h: 'Come funziona Meet us There', p: 'Di dove sarai comunque. Chi vuole passa – nessun impegno, nessuna pressione. (Video in inglese)' },
+    pt: { title: 'Meet us There – Vídeo explicativo', h: 'Como funciona o Meet us There', p: 'Diga onde você vai estar de qualquer jeito. Quem quiser aparece – sem compromisso, sem pressão. (Vídeo em inglês)' },
+    fr: { title: 'Meet us There – Vidéo explicative', h: 'Comment fonctionne Meet us There', p: 'Dis où tu seras de toute façon. Qui veut passe te voir – sans engagement, sans pression. (Vidéo en anglais)' },
+    pl: { title: 'Meet us There – Film instruktażowy', h: 'Jak działa Meet us There', p: 'Powiedz, gdzie i tak będziesz. Kto chce, wpadnie – bez zobowiązań, bez presji. (Film po angielsku)' }
   };
   var q = new URLSearchParams(location.search);
   var lang = q.get('lang');
 
   function show(l) {
     var t = T[l], v = document.getElementById('v');
-    document.documentElement.lang = l === 'de' ? 'de' : 'en';
+    document.documentElement.lang = l;
+    var vl = l === 'de' ? 'de' : 'en';
     document.title = t.title;
     document.getElementById('h').textContent = t.h;
     document.getElementById('p').textContent = t.p;
     v.pause();
-    v.poster = 'poster-' + l + '.jpg';
-    v.src = 'erklaervideo-' + l + '.mp4';
+    v.poster = 'poster-' + vl + '.jpg';
+    v.src = 'erklaervideo-' + vl + '.mp4';
     v.load();
     document.querySelectorAll('.langs button').forEach(function (b) { b.classList.toggle('on', b.dataset.l === l); });
     history.replaceState(null, '', '?lang=' + l);
   }
   document.querySelectorAll('.langs button').forEach(function (b) { b.onclick = function () { show(b.dataset.l); }; });
-  show(T[lang] ? lang : /^de/i.test(navigator.language || '') ? 'de' : 'en');
+  var nl = (navigator.language || 'en').slice(0, 2).toLowerCase();
+  var ok = function (x) { return Object.prototype.hasOwnProperty.call(T, x); };
+  show(ok(lang) ? lang : ok(nl) ? nl : 'en');
 </script>
 </body>
 </html>
