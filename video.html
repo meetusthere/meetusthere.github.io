@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="top">
-  <select class="langs" id="langSel" aria-label="Sprache / Language"><option value="de">Deutsch</option><option value="en">English</option><option value="es">Español</option><option value="it">Italiano</option><option value="pt">Português</option><option value="fr">Français</option><option value="pl">Polski</option><option value="ru">Русский</option><option value="uk">Українська</option></select>
+  <select class="langs" id="langSel" aria-label="Sprache / Language"><option value="de">Deutsch</option><option value="en">English</option><option value="es">Español</option><option value="it">Italiano</option><option value="pt">Português</option><option value="fr">Français</option><option value="pl">Polski</option><option value="ru">Русский</option><option value="uk">Українська</option><option value="tr">Türkçe</option></select>
 </div>
 <main>
   <h1 id="h"></h1>
@@ -34,7 +34,8 @@
     fr: { title: 'Meet us There – Vidéo explicative', h: 'Comment fonctionne Meet us There', p: 'Dis où tu seras de toute façon. Qui veut passe te voir – sans engagement, sans pression.' },
     pl: { title: 'Meet us There – Film instruktażowy', h: 'Jak działa Meet us There', p: 'Powiedz, gdzie i tak będziesz. Kto chce, wpadnie – bez zobowiązań, bez presji.' },
     ru: { title: 'Meet us There – Видео-объяснение', h: 'Как работает Meet us There', p: 'Расскажи, где ты и так будешь. Кто захочет, заглянет — без обязательств, без давления.' },
-    uk: { title: 'Meet us There – Відео-пояснення', h: 'Як працює Meet us There', p: 'Розкажи, де ти й так будеш. Хто захоче, загляне — без зобов’язань, без тиску.' }
+    uk: { title: 'Meet us There – Відео-пояснення', h: 'Як працює Meet us There', p: 'Розкажи, де ти й так будеш. Хто захоче, загляне — без зобов’язань, без тиску.' },
+    tr: { title: 'Meet us There – Tanıtım videosu', h: 'Meet us There nasıl çalışır', p: 'Zaten nerede olacağını paylaş. İsteyen uğrar – zorunluluk yok, baskı yok.' }
   };
   var q = new URLSearchParams(location.search);
   var lang = q.get('lang');
@@ -42,7 +43,7 @@
   function show(l) {
     var t = T[l], v = document.getElementById('v');
     document.documentElement.lang = l;
-    var vl = l;
+    var vl = l === 'tr' ? 'en' : l; // Türkisch: noch kein eigenes Video
     document.title = t.title;
     document.getElementById('h').textContent = t.h;
     document.getElementById('p').textContent = t.p;
